@@ -1,0 +1,25 @@
+[env]
+_.python.venv = { path = "venv" }
+
+[tools]
+python = "3.11"
+ruff = "latest"
+
+
+[tasks."check:lint"]
+run = "ruff check service tests --fix" 
+
+[tasks."check:format"]
+run = "ruff format service tests"
+
+[tasks."check:types"]
+run = "pyright service"
+
+[tasks."check:tests"]
+run = "pytest tests"
+
+[tasks.check]
+depends = ["check:*"]
+
+[tasks.start]
+run = ["fastapi run service/main.py --reload"]

@@ -1,10 +1,12 @@
-from datetime import datetime, date
+from datetime import date
 from enum import Enum
 
 from pydantic import BaseModel
+
+
 class Gender(str, Enum):
-    male = 'male'
-    female = 'female'
+    male = "male"
+    female = "female"
 
 
 class UserBase(BaseModel):
@@ -17,6 +19,7 @@ class UserBase(BaseModel):
     hobbies: list[str]
     city: str
 
+
 class UserRegister(BaseModel):
     username: str
     password: str
@@ -26,6 +29,7 @@ class UserRegister(BaseModel):
     gender: Gender
     hobbies: list[str]
     city: str
+
 
 class UserLogin(BaseModel):
     username: str

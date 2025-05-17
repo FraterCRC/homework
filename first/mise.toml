@@ -21,5 +21,12 @@ run = "pytest tests"
 [tasks.check]
 depends = ["check:*"]
 
-[tasks.start]
+[tasks."start:fastapi"]
 run = ["fastapi run service/main.py --reload"]
+
+[tasks."start:db"]
+run = ["docker-compose down && docker-compose up -d"]
+silent = true
+
+[tasks.start]
+depends = ["start:*"]

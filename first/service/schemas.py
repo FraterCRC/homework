@@ -27,7 +27,7 @@ class UserRegister(BaseModel):
     last_name: str
     birth_date: date
     gender: Gender
-    hobbies: list[str]
+    hobbies: str
     city: str
 
 
